@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://csb7jbux5wmse"]
+
+[ext_resource type="Script" path="res://Bomba.gd" id="1_1k0q7"]
+[ext_resource type="Texture2D" uid="uid://c20as15xvnse2" path="res://sprites.png" id="2_yop8e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fi13l"]
+radius = 7.9
+
+[node name="Bomba" type="CharacterBody2D"]
+motion_mode = 1
+safe_margin = 0.16
+script = ExtResource("1_1k0q7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fi13l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_yop8e")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)

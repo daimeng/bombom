@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://1pkj7vqnbbaj"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_674l6"]
+[ext_resource type="Texture2D" uid="uid://db5n0x6a753ig" path="res://tile.png" id="1_aoaqp"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dgpnd"]
+texture = ExtResource("1_aoaqp")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_yvfu2"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_dgpnd")
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_674l6")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(0, 6)
+tile_set = SubResource("TileSet_yvfu2")
+format = 2
+layer_0/name = "ground"
+layer_1/name = "walls"
+layer_1/tile_data = PackedInt32Array()
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
