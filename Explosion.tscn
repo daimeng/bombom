@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cm0ecpnhag1vj"]
+[gd_scene load_steps=10 format=3 uid="uid://cm0ecpnhag1vj"]
 
 [ext_resource type="Script" path="res://Explosion.gd" id="1_rtom0"]
 
@@ -37,6 +37,8 @@ scale_curve = SubResource("CurveTexture_o1xit")
 color_ramp = SubResource("GradientTexture1D_rk7qy")
 alpha_curve = SubResource("CurveTexture_wajuc")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vhk3c"]
+
 [node name="Explosion" type="GPUParticles2D"]
 emitting = false
 amount = 50
@@ -45,3 +47,10 @@ lifetime = 0.3
 one_shot = true
 explosiveness = 1.0
 script = ExtResource("1_rtom0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_vhk3c")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
